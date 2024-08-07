@@ -1,0 +1,53 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+.card-custom {
+    width: 800px; /* Adjust width to fit the form content */
+    height: auto; /* Auto height to fit the form content */
+    margin-right: 40px; /* Adjust as needed */
+    margin-top: 30px; /* Adjust as needed */
+    padding: 20px; /* Add padding for better spacing */
+  }
+
+.card-body {
+    padding: 20px; /* Add padding for better spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    flex-grow: 1;
+    margin-top: 50px;
+    margin-left: 20px;
+  }
+
+h4 {
+    color: rgb(235,104,100,1);
+}
+
+.form-group {
+    width: 100%; /* Full width for form groups */
+    margin-bottom: 15px; /* Add margin between form groups */
+  }
+
+.php-email-form .form-control {
+    width: 100%; /* Ensure the form control takes full width */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+  }
+
+  .php-email-form button {
+    width: 100%; /* Make the submit button full width */
+  }
+  
+body {
+    padding-bottom: 100px; /* Adjust based on the height of your footer */
+  }
+
+.btn-light {
+    color: rgb(235,104,100,1);
+}

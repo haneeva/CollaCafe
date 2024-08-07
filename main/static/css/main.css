@@ -1,0 +1,11 @@
+/* main.css */
+
+.container {
+    flex: 1;
+    padding-top: 20px; /* Adjust based on header height */
+    padding-bottom: 50px; /* Adjust based on footer height */
+}
+
+.col {
+    margin-top: 50px; /* Adjust the value as needed */
+}

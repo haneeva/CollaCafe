@@ -1,0 +1,82 @@
+/* CSS for the form container */
+.container {
+    margin-bottom: 50px;
+}
+
+form {
+    max-width: 500px; /* Set the maximum width of the form */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add some padding inside the form */
+    border: 1px solid #ccc; /* Optional: Add a border around the form */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    background-color: #f8f9fa; /* Optional: Set a background color */
+}
+
+/* CSS for the input fields */
+input.form-control {
+    width: 100%; /* Make input fields take up the full width of the form */
+    padding: 10px; /* Add some padding inside the input fields */
+    font-size: 16px; /* Increase the font size */
+    border-radius: 4px; /* Add rounded corners to the input fields */
+}
+
+/* Optional: Styling for the submit button */
+button.btn-primary {
+    width: 100%; /* Make the button take up the full width of the form */
+    padding: 10px; /* Add padding to the button */
+    font-size: 18px; /* Increase the font size of the button text */
+    border-radius: 4px; /* Add rounded corners to the button */
+}
+
+/* Optional: Centering form label text */
+label.form-label {
+    display: block; /* Ensure labels are on their own line */
+    margin-bottom: 8px; /* Add some space below labels */
+    font-weight: bold; /* Make label text bold */
+    font-size: 14px; /* Increase label font size */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+p {
+    margin-top: 20px;
+}
+
+#message-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Specific styles for error messages */
+.alert-danger {
+    background-color: #f8d7da; /* Light red background */
+    border-color: #f5c6cb; /* Slightly darker red border */
+    color: #721c24; /* Dark red text color */
+}
+
+/* Specific styles for success messages */
+.alert-success {
+    background-color: #d4edda; /* Light green background */
+    border-color: #c3e6cb; /* Slightly darker green border */
+    color: #155724; /* Dark green text color */
+}
+
+
+/* Optional: Add a transition for a fade effect */
+#message-box {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Optional: Fade out the message box after a few seconds */
+.fade-out {
+    opacity: 0;
+}

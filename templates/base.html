@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/journal/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    {% block stylesheet %}{% endblock %}
+</head>
+<body>
+    <!-- ======= Header ======= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'main:main' %}">CollaCafe</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="{% url 'main:main' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="{% url 'main:about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="{% url 'contact:contact' %}">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="#">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="{% url 'account:logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="{% url 'account:login' %}">Login</a>
+                </li>                    
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- ======= End Header ======= -->
+
+    <!-- ======= Main ======= -->
+    <main id="main">
+        {% block content %}{% endblock %}
+    </main>
+    <!-- ======= End Main ======= -->
+
+    <!-- ======= Footer ======= -->
+    <footer class="footer bg-primary">
+        <div class="container-fluid">
+            <div class="footer-content">
+                <p class="footer-text">Created By Haneeva</p>
+                <p class="footer-text">Contact: <a href="mailto:asmahanifah11@gmail.com">asmahanifah11@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and Popper.js Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    {% block script %}{% endblock %}
+    
+</body>
+</html>

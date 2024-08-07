@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/signup.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Signup
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Sign Up a New Account</h2>
+    
+    <!-- Display any messages -->
+    {% if messages %}
+    {% for message in messages %}
+        <div id="message-box" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Username Field -->
+        <div class="form-group">
+            <label for="id_username" class="form-label mt-4">Username</label>
+            <input type="text" class="form-control" id="id_username" name="username" placeholder="Enter username" value="{{ form.username.value|default:'' }}">
+            {% for error in form.username.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- First Name Field -->
+        <div class="form-group">
+            <label for="id_first_name" class="form-label mt-4">First Name</label>
+            <input type="text" class="form-control" id="id_first_name" name="first_name" placeholder="Enter first name" value="{{ form.first_name.value|default:'' }}">
+            {% for error in form.first_name.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Last Name Field -->
+        <div class="form-group">
+            <label for="id_last_name" class="form-label mt-4">Last Name</label>
+            <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Enter last name" value="{{ form.last_name.value|default:'' }}">
+            {% for error in form.last_name.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Email Field -->
+        <div class="form-group">
+            <label for="id_email" class="form-label mt-4">Email</label>
+            <input type="email" class="form-control" id="id_email" name="email" placeholder="Enter email" value="{{ form.email.value|default:'' }}">
+            {% for error in form.email.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="id_password1" class="form-label mt-4">Password</label>
+            <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Enter password">
+            {% for error in form.password1.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Confirm Password Field -->
+        <div class="form-group">
+            <label for="id_password2" class="form-label mt-4">Confirm Password</label>
+            <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirm password">
+            {% for error in form.password2.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+
+        <p>Already have an account? <a href="{% url 'account:login' %}">Login</a></p>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/message.js' %}"></script>
+{% endblock %}

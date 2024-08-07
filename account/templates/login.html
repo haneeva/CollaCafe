@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Login with your account</h2>
+
+    <!-- Display any messages -->
+    {% if messages %}
+    {% for message in messages %}
+        <div id="message-box" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Username Field -->
+        <div class="form-group">
+            <label for="username" class="form-label mt-4">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" value="{{ form.username.value|default:'' }}" autocomplete="username">
+            <!-- Display field errors -->
+            {% for error in form.username.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Password Field -->
+        <div class="form-group">
+            <label for="password" class="form-label mt-4">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" autocomplete="current-password">
+            <!-- Display field errors -->
+            {% for error in form.password.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-3">Login</button><br>
+        
+        <p>Don't have an account? <a href="{% url 'account:signup' %}">Sign up</a></p>
+    </form>  
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/message.js' %}"></script>
+{% endblock %}

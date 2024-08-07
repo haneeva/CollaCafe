@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col" id="description">
+            <h2 class="text1">Welcome to Colla Cafe</h2>
+            <h5>Book Your Perfect Brew with Ease.</h5>
+            <a href="#" class="btn btn-primary btn-lg">Make a Reservation</a>
+        </div>
+        <div class="col" id="image">
+            <img src="{% static 'img/CollaCafe.jpg' %}" alt="CollaCafe Image" width="700px" height="350px">
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    CollaCafe - About
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col" id="description">
+            <br><br><br>
+            <h2 class="text2">Colla Cafe</h2><br>
+            <h5>Welcome to Colla Cafe, a brand-new cafe dedicated to delighting your taste buds with an array of exquisite desserts. At Colla Cafe, we believe that desserts are more than just a treat—they are an experience, a moment of joy to be savored and shared.</h5>
+            <h5>Our cafe offers a warm and inviting atmosphere, perfect for gathering with friends, family, or simply enjoying some quiet time with a delicious dessert. Our menu features a diverse selection of handcrafted sweets, from classic favorites to innovative creations, all made with the finest ingredients and a touch of love.</h5>
+        </div>
+    </div>
+</div>
+{% endblock %}
