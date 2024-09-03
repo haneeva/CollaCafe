@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'css/reservationForm.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Reservation Form
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Make a Reservation</h2>
+
+    <!-- Display any messages -->
+    {% if messages %}
+    {% for message in messages %}
+        <div id="message-box" class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Customer Name Field -->
+        <div class="form-group">
+            <label for="customer_name" class="form-label mt-4">Name</label>
+            <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Enter your name" value="{{ form.customer_name.value|default:'' }}">
+            {% for error in form.customer_name.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Customer Email Field -->
+        <div class="form-group">
+            <label for="customer_email" class="form-label mt-4">Email</label>
+            <input type="email" class="form-control" id="customer_email" name="customer_email" placeholder="Enter your email" value="{{ form.customer_email.value|default:'' }}">
+            {% for error in form.customer_email.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Customer Phone Field -->
+        <div class="form-group">
+            <label for="customer_phone" class="form-label mt-4">Phone Number</label>
+            <input type="text" class="form-control" id="customer_phone" name="customer_phone" placeholder="Enter your phone number" value="{{ form.customer_phone.value|default:'' }}">
+            {% for error in form.customer_phone.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Reservation Date Field -->
+        <div class="form-group">
+            <label for="reservation_date" class="form-label mt-4">Reservation Date</label>
+            <input type="date" class="form-control" id="reservation_date" name="reservation_date" value="{{ form.reservation_date.value|default:'' }}">
+            {% for error in form.reservation_date.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Reservation Time Field -->
+        <div class="form-group">
+            <label for="reservation_time" class="form-label mt-4">Reservation Time</label>
+            <input type="time" class="form-control" id="reservation_time" name="reservation_time" value="{{ form.reservation_time.value|default:'' }}">
+            {% for error in form.reservation_time.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+
+          <!-- Number of Guests Field -->
+          <div class="form-group">
+            <label for="number_of_guests" class="form-label mt-4">Number of Guests</label>
+            <input type="number" class="form-control" id="number_of_guests" name="number_of_guests" min="1" placeholder="1" value="{{ form.number_of_guests.value|default:'' }}">
+            {% for error in form.number_of_guests.errors %}
+                <small class="text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary mt-3">Submit Reservation</button>
+    </form>  
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/message.js' %}"></script>
+{% endblock %}

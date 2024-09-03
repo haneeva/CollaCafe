@@ -22,4 +22,6 @@ urlpatterns = [
     path('', include(('main.urls', 'main'), namespace='main')),
     path('contact/', include(('contact.urls', 'contact'), namespace='contact')),
     path('account/', include(('account.urls', 'account'), namespace='account')),
+    path('reservation/', include(('reservation.urls',
+         'reservation'), namespace='reservation')),
 ]
