@@ -37,7 +37,7 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link scrollto" href="#">Reservation</a>
+                        <a class="nav-link scrollto" href="{% url 'reservation:reservation' %}">Reservation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link scrollto" href="{% url 'account:logout' %}">Logout</a>

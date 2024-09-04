@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Reservation(models.Model):
@@ -9,3 +10,7 @@ class Reservation(models.Model):
     reservation_time = models.TimeField()
     number_of_guests = models.IntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.customer_name} - {self.reservation_date} at {self.reservation_time}"

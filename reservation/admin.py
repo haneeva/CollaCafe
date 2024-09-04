@@ -6,7 +6,7 @@ from .models import Reservation
 
 class ReservationAdmin(admin.ModelAdmin):
     list_display = ('customer_name', 'customer_email',
-                    'customer_phone', 'reservation_date', 'reservation_time', 'number_of_guests')
+                    'customer_phone', 'reservation_date', 'reservation_time', 'number_of_guests', 'user')
 
 
 admin.site.register(Reservation, ReservationAdmin)
